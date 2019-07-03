@@ -1,0 +1,59 @@
+included: # paths to include during linting. `--path` is ignored if present.
+  - MyRide
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - MyRideTests
+  - MyRideUITests
+  
+
+disabled_rules:
+  - trailing_whitespace
+  - implicit_getter
+
+opt_in_rules:
+  - variable_name
+  - empty_count
+  - force_cast
+  - force_try
+  - force_unwrapping
+  - function_default_parameter_at_end
+  - legacy_random
+  - leading_whitespace
+  - function_body_length
+  - function_parameter_count
+  - legacy_constant
+  - operator_whitespace
+  - return_arrow_whitespace
+  - todo
+  - nesting
+
+force_cast: warning
+
+force_try:
+  severity: warning
+
+empty_count:
+  severity: warning
+
+line_length: 140
+
+cyclomatic_complexity:
+  warning: 15
+  error: 40
+
+type_body_length:
+  - 300 # warning
+  - 400 # error
+
+identifier_name:
+  min_length:
+    warning: 3
+    error: 1
+  excluded: # excluded via string array
+    - id
+    - url
+
+
+
+

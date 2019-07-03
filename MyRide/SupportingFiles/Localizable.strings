@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  MyRide
+
+  Created by Antony Alkmim on 01/07/19.
+  Copyright © 2019 Antony Alkmim. All rights reserved.
+*/
+
+"http_error.jsonMapping" = "Connection error. Please, try again later!";
+"http_error.noInternetConnection" = "There's no internet conection. Please, check your connection!";
+"http_error.connectionError" = "Connection error. Please, try again later!";
+"http_error.unauthorized" = "Unauthorized.";
+"http_error.unknow" = "Unknow error.";
+
+"drivers_map.title" = "Find my Taxi";
+
+"drivers_list.title" = "Drivers";
+
+"alert.error.title" = "Sorry";
+
