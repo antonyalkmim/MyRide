@@ -41,7 +41,7 @@ import CoreLocation
         if let location = locations.last {
             didGetCurrentLocation?(location)
         }
-        // capture user location just one time
+        // capture user location only once
         manager.stopUpdatingLocation()
     }
     

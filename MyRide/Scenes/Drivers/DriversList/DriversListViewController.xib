@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DriversListViewController" customModule="MyRide" customModuleProvider="target">
             <connections>
+                <outlet property="emptyLabel" destination="nd5-sJ-Z5x" id="vsG-Rf-zPj"/>
                 <outlet property="tableView" destination="Bb4-x5-uYg" id="xLn-0d-9fa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,12 +26,20 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No drivers were found." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nd5-sJ-Z5x">
+                    <rect key="frame" x="120" y="437.5" width="174" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bb4-x5-uYg" secondAttribute="trailing" id="DOu-J9-KwC"/>
                 <constraint firstItem="Bb4-x5-uYg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="G7S-7M-c2o"/>
                 <constraint firstItem="Bb4-x5-uYg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="O6z-Fe-fhv"/>
+                <constraint firstItem="nd5-sJ-Z5x" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RMM-j2-7CU"/>
+                <constraint firstItem="nd5-sJ-Z5x" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hTg-hF-3Lq"/>
                 <constraint firstAttribute="bottom" secondItem="Bb4-x5-uYg" secondAttribute="bottom" id="jVR-0l-n8L"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

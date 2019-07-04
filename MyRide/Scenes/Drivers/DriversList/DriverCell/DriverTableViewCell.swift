@@ -30,8 +30,7 @@ class DriverTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         
-        thumbImageView.layer.cornerRadius = thumbImageView.bounds.width / 2
-        
+        // cell with rounded corners
         wrapperView.clipsToBounds = false
         wrapperView.layer.cornerRadius = 12
         wrapperView.backgroundColor = UIColor.white
@@ -39,11 +38,16 @@ class DriverTableViewCell: UITableViewCell {
         wrapperView.layer.borderWidth = 0.1
         backgroundColor = UIColor.clear
         
+        // thumb with rounded corners
+        thumbImageView.layer.cornerRadius = thumbImageView.bounds.width / 2
+        
+        // distance label with rounded corners
         distanceLabel.clipsToBounds = true
         distanceLabel.layer.cornerRadius = distanceLabel.bounds.height / 2
     }
     
     private func bindUI() {
+        thumbImageView.image        = viewModel?.driverIcon
         vehicleTypeLabel.text       = viewModel?.driverFleetType
         driverIdentifierLabel.text  = viewModel?.identifier
         latitudeLabel.text          = viewModel?.latitudeFormatted

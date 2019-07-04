@@ -13,8 +13,12 @@
 "http_error.unknow" = "Unknow error.";
 
 "drivers_map.title" = "Find my Taxi";
+"drivers_map.request_driver.error" = "Sorry, we could not request your ride.";
+
 
 "drivers_list.title" = "Drivers";
 
-"alert.error.title" = "Sorry";
+"alert.error.title" = "Sorry!";
+"alert.success.title" = "Success!";
+
 

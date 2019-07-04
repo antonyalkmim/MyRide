@@ -1,7 +1,8 @@
+use_frameworks!
 
 target 'MyRide' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+  
+  
 
   #Tools
   pod 'SwiftGen', '~> 6.0'
@@ -14,6 +15,9 @@ target 'MyRide' do
 
   target 'MyRideTests' do
     inherit! :search_paths
+    
+    pod 'RxBlocking', '~> 5'
+    pod 'RxTest', '~> 5'
     
   end
 

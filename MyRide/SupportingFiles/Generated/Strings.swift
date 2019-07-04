@@ -14,8 +14,12 @@ internal enum L10n {
 
   internal enum Alert {
     internal enum Error {
-      /// Sorry
+      /// Sorry!
       internal static let title = L10n.tr("Localizable", "alert.error.title")
+    }
+    internal enum Success {
+      /// Success!
+      internal static let title = L10n.tr("Localizable", "alert.success.title")
     }
   }
 
@@ -27,6 +31,10 @@ internal enum L10n {
   internal enum DriversMap {
     /// Find my Taxi
     internal static let title = L10n.tr("Localizable", "drivers_map.title")
+    internal enum RequestDriver {
+      /// Sorry, we could not request your ride.
+      internal static let error = L10n.tr("Localizable", "drivers_map.request_driver.error")
+    }
   }
 
   internal enum HttpError {

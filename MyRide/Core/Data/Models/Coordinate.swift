@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 
 @objcMembers public class Coordinate: NSObject, Decodable {
+    
     let latitude: Double
     let longitude: Double
     

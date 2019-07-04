@@ -20,8 +20,10 @@
 internal enum Asset {
   internal static let icClose = ImageAsset(name: "ic_close")
   internal static let icList = ImageAsset(name: "ic_list")
+  internal static let poolingMap = ImageAsset(name: "pooling-map")
   internal static let taxiFlat = ImageAsset(name: "taxi-flat")
   internal static let taxiLaunchscreen = ImageAsset(name: "taxi-launchscreen")
+  internal static let taxiMap = ImageAsset(name: "taxi-map")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

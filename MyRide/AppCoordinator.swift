@@ -13,14 +13,24 @@ class AppCoordinator: Coordinator {
     
     private var navigationController: UINavigationController?
     
+    var window: UIWindow!
+    
     override init() {
         super.init()
+        
+        // setup app navigation style
         UINavigationBar.appearance().barTintColor = UIColor(hex: 0xEBC10B)
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor = UIColor.black
         
+        // setup rootViewController
         self.navigationController = UINavigationController()
         self.rootViewController = navigationController
+        
+        // setup window
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
         
     }
     
@@ -31,7 +41,7 @@ class AppCoordinator: Coordinator {
     
     private func enterApp() {
         guard let navigation = navigationController else { return }
-        let coordinator = DriversCoordinator(navigationController: navigation)
+        let coordinator = DriversMapCoordinator(navigationController: navigation)
         coordinator.start()
         store(coordinator: coordinator)
     }

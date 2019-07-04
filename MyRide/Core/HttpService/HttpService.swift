@@ -8,12 +8,11 @@
 
 import Foundation
 
-public enum TargetTypeTask {
-    case request
-    case upload(multipartFormData: MultipartFormData)
+enum TargetTypeTask {
+    case requestPlain
 }
 
-public protocol TargetType {
+protocol TargetType {
     var baseURL: URL { get }
     var path: String { get }
     var method: HttpMethod { get }
@@ -23,7 +22,7 @@ public protocol TargetType {
     var sampleData: Data { get }
 }
 
-public extension TargetType {
+extension TargetType {
     func urlRequest() -> URLRequest {
         
         // generate url
@@ -45,13 +44,8 @@ public extension TargetType {
         /// http method
         request.httpMethod = self.method.rawValue
         
-        /// body
-        if case let TargetTypeTask.upload(multipartFormData) = self.task {
-            request.httpBody = multipartFormData.asData
-            request.setValue("multipart/form-data; boundary=\(multipartFormData.boundary)", forHTTPHeaderField: "Content-Type")
-        } else {
-            request.httpBody = self.body
-        }
+        /// request body
+        request.httpBody = self.body
         
         /// headers
         self.headers?.forEach {
@@ -63,37 +57,37 @@ public extension TargetType {
     
 }
 
-public enum Result {
-    case failure(Error)
-    case success(Data)
-}
-
-public enum HttpMethod: String {
+enum HttpMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
 }
 
-public protocol HttpServiceType: class {
+protocol HttpServiceType: class {
     associatedtype Target: TargetType
     var session: URLSession { get }
-    func request(_ endpoint: Target, responseData: @escaping (Result) -> Void) -> URLSessionDataTask?
+    func request(_ endpoint: Target, responseData: @escaping (Result<Data, HttpError>) -> Void) -> URLSessionDataTask?
 }
 
-public class HttpService<Target: TargetType>: HttpServiceType {
+class HttpService<Target: TargetType>: HttpServiceType {
     
-    private var requestClosure: (Target) -> URLRequest
-    private var responseClosure: (HTTPURLResponse?, Data?) -> Void
+    typealias RequestClosure = (Target) -> URLRequest
+    typealias ResponseClosure = (HTTPURLResponse?, Data?) -> Void
+    
+    private var requestClosure: RequestClosure
+    private var responseClosure: ResponseClosure
     public let session: URLSession
     private var returnSampleData: Bool
     
     // MARK: - Initializer
-    public init(urlSession: URLSession? = nil,
-         requestClosure: @escaping ((Target) -> URLRequest) = { $0.urlRequest() },
-         responseClosure: @escaping ((HTTPURLResponse?, Data?) -> Void) = { _, _ in },
+    
+    init(urlSession: URLSession? = nil,
+         requestClosure: @escaping RequestClosure = { $0.urlRequest() },
+         responseClosure: @escaping ResponseClosure = { _, _ in },
          returnSampleData: Bool = false) {
-        self.session = URLSession(
+        
+        self.session = urlSession ?? URLSession(
             configuration: URLSessionConfiguration.default,
             delegate: HttpServiceSessionDelegate(),
             delegateQueue: nil
@@ -104,7 +98,7 @@ public class HttpService<Target: TargetType>: HttpServiceType {
     }
     
     @discardableResult
-    public func request(_ endpoint: Target, responseData: @escaping (Result) -> Void) -> URLSessionDataTask? {
+    func request(_ endpoint: Target, responseData: @escaping (Result<Data, HttpError>) -> Void) -> URLSessionDataTask? {
         //1 - pass through interceptors
         let request = requestClosure(endpoint)
         
@@ -146,6 +140,8 @@ public class HttpService<Target: TargetType>: HttpServiceType {
     }
     
 }
+
+// MARK: - SSL Pinning
 
 public class HttpServiceSessionDelegate: NSObject, URLSessionDelegate {
     

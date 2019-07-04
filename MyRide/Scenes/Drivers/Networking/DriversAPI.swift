@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum DriversAPI {
-    case getDrivers(neCoordinate: Coordinate, swCoordinate: Coordinate)
+public enum DriversAPI {
+    case getDrivers(northEastCoordinate: Coordinate, southWestCoordinate: Coordinate)
 }
 
 extension DriversAPI: TargetType {
@@ -20,8 +20,12 @@ extension DriversAPI: TargetType {
     
     var path: String {
         switch self {
-        case let .getDrivers(p1, p2):
-            return "/?p2Lat=\(p2.latitude)&p1Lon=\(p1.longitude)&p1Lat=\(p1.latitude)&p2Lon=\(p2.longitude)"
+        case let .getDrivers(northEastCoordinate, southWestCoordinate):
+            return String(format: "/?p2Lat=%f&p1Lon=%f&p1Lat=%f&p2Lon=%f",
+                southWestCoordinate.latitude,
+                northEastCoordinate.longitude,
+                northEastCoordinate.latitude,
+                southWestCoordinate.longitude)
         }
     }
     
@@ -32,10 +36,12 @@ extension DriversAPI: TargetType {
         }
     }
     
+    // Request type
     var task: TargetTypeTask {
-        return .request
+        return .requestPlain
     }
     
+    // Request JSON Body
     var body: Data? {
         return nil
     }
@@ -44,6 +50,7 @@ extension DriversAPI: TargetType {
         return ["Content-type": "application/json"]
     }
     
+    // Mock reponse Data
     var sampleData: Data {
         return Data()
     }

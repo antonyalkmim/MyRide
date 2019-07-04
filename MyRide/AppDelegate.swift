@@ -19,10 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         coordinator = AppCoordinator()
         coordinator?.start()
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = coordinator?.rootViewController
-        window?.makeKeyAndVisible()
+        self.window = coordinator?.window
         
         return true
     }

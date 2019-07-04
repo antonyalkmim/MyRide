@@ -12,14 +12,12 @@
 		FF0CE28822CA467D00B8D01B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE28722CA467D00B8D01B /* AppDelegate.swift */; };
 		FF0CE28F22CA467F00B8D01B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF0CE28E22CA467F00B8D01B /* Assets.xcassets */; };
 		FF0CE29222CA467F00B8D01B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0CE29022CA467F00B8D01B /* LaunchScreen.storyboard */; };
-		FF0CE29D22CA467F00B8D01B /* MyRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE29C22CA467F00B8D01B /* MyRideTests.swift */; };
 		FF0CE2AA22CA545300B8D01B /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2A922CA545300B8D01B /* HttpService.swift */; };
 		FF0CE2AF22CA56C900B8D01B /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2AE22CA56C900B8D01B /* Assets.swift */; };
 		FF0CE2B122CA56FA00B8D01B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF0CE2B022CA56FA00B8D01B /* Localizable.strings */; };
 		FF0CE2B422CA5A4300B8D01B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2B322CA5A4300B8D01B /* Strings.swift */; };
 		FF0CE2B622CA5A7100B8D01B /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2B522CA5A7100B8D01B /* HttpError.swift */; };
 		FF0CE2B822CA5ADF00B8D01B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2B722CA5ADF00B8D01B /* Reachability.swift */; };
-		FF0CE2BA22CA5B2E00B8D01B /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2B922CA5B2E00B8D01B /* MultipartFormData.swift */; };
 		FF0CE2BD22CA774200B8D01B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2BC22CA774200B8D01B /* Coordinator.swift */; };
 		FF0CE2C022CA777B00B8D01B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2BF22CA777B00B8D01B /* AppCoordinator.swift */; };
 		FF0CE2D022CA867900B8D01B /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2CF22CA867900B8D01B /* Driver.swift */; };
@@ -27,8 +25,6 @@
 		FF0CE2D522CA87B500B8D01B /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2D422CA87B500B8D01B /* Coordinate.swift */; };
 		FF0CE2E622CAF4FD00B8D01B /* DriversListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2E422CAF4FD00B8D01B /* DriversListViewController.swift */; };
 		FF0CE2E722CAF4FD00B8D01B /* DriversListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0CE2E522CAF4FD00B8D01B /* DriversListViewController.xib */; };
-		FF0CE2F022CAFF9F00B8D01B /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2EF22CAFF9F00B8D01B /* UIViewController+Utils.swift */; };
-		FF0CE2F222CB0D2900B8D01B /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2F122CB0D2900B8D01B /* UIImage+Utils.swift */; };
 		FF0CE2F722CB141500B8D01B /* DriversAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2F622CB141500B8D01B /* DriversAPI.swift */; };
 		FF0CE2FA22CB186400B8D01B /* GetDriversResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2F922CB186400B8D01B /* GetDriversResponse.swift */; };
 		FF0CE2FC22CB252900B8D01B /* DriversListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE2FB22CB252900B8D01B /* DriversListViewModel.swift */; };
@@ -37,14 +33,24 @@
 		FF0CE30522CB9CBB00B8D01B /* DriverCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE30422CB9CBB00B8D01B /* DriverCellViewModel.swift */; };
 		FF0CE30722CBA49B00B8D01B /* DriversService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE30622CBA49B00B8D01B /* DriversService.swift */; };
 		FF0CE30922CBA51800B8D01B /* MapBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE30822CBA51800B8D01B /* MapBounds.swift */; };
-		FF0CE30B22CBA67900B8D01B /* ServiceResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE30A22CBA67900B8D01B /* ServiceResponseResult.swift */; };
-		FF0CE30D22CBADD200B8D01B /* DriversCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE30C22CBADD200B8D01B /* DriversCoordinator.swift */; };
 		FF0CE30F22CBB02A00B8D01B /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE30E22CBB02A00B8D01B /* UITableView+Utils.swift */; };
 		FF0CE31122CBDB6D00B8D01B /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE31022CBDB6D00B8D01B /* UIColor+Utils.swift */; };
 		FF0CE31722CBE38D00B8D01B /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE31622CBE38D00B8D01B /* LocationHelper.swift */; };
 		FF0CE31B22CBF06F00B8D01B /* DriversMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE31922CBF06F00B8D01B /* DriversMapViewController.m */; };
 		FF0CE31C22CBF06F00B8D01B /* DriversMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0CE31A22CBF06F00B8D01B /* DriversMapViewController.xib */; };
 		FF0CE32122CBF12000B8D01B /* DriversMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0CE32022CBF12000B8D01B /* DriversMapViewModel.m */; };
+		FF5BB6B222CD2295003A9428 /* DriversListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6B122CD2295003A9428 /* DriversListViewModelTests.swift */; };
+		FF5BB6B522CD237C003A9428 /* DriversServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6B422CD237C003A9428 /* DriversServiceMock.swift */; };
+		FF5BB6B722CD5521003A9428 /* DriversMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6B622CD5521003A9428 /* DriversMapCoordinator.swift */; };
+		FF5BB6B922CD55A7003A9428 /* DriversListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6B822CD55A7003A9428 /* DriversListCoordinator.swift */; };
+		FF5BB6BB22CD5F65003A9428 /* DriverCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6BA22CD5F64003A9428 /* DriverCellViewModelTests.swift */; };
+		FF5BB6BE22CD6EB1003A9428 /* DriversMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6BD22CD6EB1003A9428 /* DriversMapViewModelTests.swift */; };
+		FF5BB6C422CD94CD003A9428 /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6C322CD94CD003A9428 /* DriverAnnotation.swift */; };
+		FF5BB6C622CD94D9003A9428 /* DriverAnnotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6C522CD94D9003A9428 /* DriverAnnotationViewModel.swift */; };
+		FF5BB6C822CDA5F0003A9428 /* DriverAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6C722CDA5F0003A9428 /* DriverAnnotationView.swift */; };
+		FF5BB6CA22CDAED5003A9428 /* DriverAnnotationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6C922CDAED5003A9428 /* DriverAnnotationViewModelTests.swift */; };
+		FF5BB6CE22CDB0D5003A9428 /* DriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6CD22CDB0D5003A9428 /* DriverTests.swift */; };
+		FF5BB6D022CDBD8E003A9428 /* NumberFormatter+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6CF22CDBD8E003A9428 /* NumberFormatter+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +76,6 @@
 		FF0CE29122CA467F00B8D01B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF0CE29322CA467F00B8D01B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF0CE29822CA467F00B8D01B /* MyRideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF0CE29C22CA467F00B8D01B /* MyRideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRideTests.swift; sourceTree = "<group>"; };
 		FF0CE29E22CA467F00B8D01B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF0CE2A922CA545300B8D01B /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		FF0CE2AE22CA56C900B8D01B /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -78,7 +83,6 @@
 		FF0CE2B322CA5A4300B8D01B /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		FF0CE2B522CA5A7100B8D01B /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		FF0CE2B722CA5ADF00B8D01B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		FF0CE2B922CA5B2E00B8D01B /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
 		FF0CE2BC22CA774200B8D01B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FF0CE2BF22CA777B00B8D01B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		FF0CE2C622CA82D700B8D01B /* MyRide-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyRide-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -87,8 +91,6 @@
 		FF0CE2D422CA87B500B8D01B /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		FF0CE2E422CAF4FD00B8D01B /* DriversListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversListViewController.swift; sourceTree = "<group>"; };
 		FF0CE2E522CAF4FD00B8D01B /* DriversListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriversListViewController.xib; sourceTree = "<group>"; };
-		FF0CE2EF22CAFF9F00B8D01B /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
-		FF0CE2F122CB0D2900B8D01B /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		FF0CE2F622CB141500B8D01B /* DriversAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversAPI.swift; sourceTree = "<group>"; };
 		FF0CE2F922CB186400B8D01B /* GetDriversResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDriversResponse.swift; sourceTree = "<group>"; };
 		FF0CE2FB22CB252900B8D01B /* DriversListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversListViewModel.swift; sourceTree = "<group>"; };
@@ -97,8 +99,6 @@
 		FF0CE30422CB9CBB00B8D01B /* DriverCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCellViewModel.swift; sourceTree = "<group>"; };
 		FF0CE30622CBA49B00B8D01B /* DriversService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversService.swift; sourceTree = "<group>"; };
 		FF0CE30822CBA51800B8D01B /* MapBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBounds.swift; sourceTree = "<group>"; };
-		FF0CE30A22CBA67900B8D01B /* ServiceResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResponseResult.swift; sourceTree = "<group>"; };
-		FF0CE30C22CBADD200B8D01B /* DriversCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversCoordinator.swift; sourceTree = "<group>"; };
 		FF0CE30E22CBB02A00B8D01B /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
 		FF0CE31022CBDB6D00B8D01B /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		FF0CE31622CBE38D00B8D01B /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
@@ -107,6 +107,18 @@
 		FF0CE31A22CBF06F00B8D01B /* DriversMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriversMapViewController.xib; sourceTree = "<group>"; };
 		FF0CE31F22CBF11600B8D01B /* DriversMapViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriversMapViewModel.h; sourceTree = "<group>"; };
 		FF0CE32022CBF12000B8D01B /* DriversMapViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriversMapViewModel.m; sourceTree = "<group>"; };
+		FF5BB6B122CD2295003A9428 /* DriversListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversListViewModelTests.swift; sourceTree = "<group>"; };
+		FF5BB6B422CD237C003A9428 /* DriversServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversServiceMock.swift; sourceTree = "<group>"; };
+		FF5BB6B622CD5521003A9428 /* DriversMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversMapCoordinator.swift; sourceTree = "<group>"; };
+		FF5BB6B822CD55A7003A9428 /* DriversListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversListCoordinator.swift; sourceTree = "<group>"; };
+		FF5BB6BA22CD5F64003A9428 /* DriverCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCellViewModelTests.swift; sourceTree = "<group>"; };
+		FF5BB6BD22CD6EB1003A9428 /* DriversMapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversMapViewModelTests.swift; sourceTree = "<group>"; };
+		FF5BB6C322CD94CD003A9428 /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
+		FF5BB6C522CD94D9003A9428 /* DriverAnnotationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotationViewModel.swift; sourceTree = "<group>"; };
+		FF5BB6C722CDA5F0003A9428 /* DriverAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotationView.swift; sourceTree = "<group>"; };
+		FF5BB6C922CDAED5003A9428 /* DriverAnnotationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotationViewModelTests.swift; sourceTree = "<group>"; };
+		FF5BB6CD22CDB0D5003A9428 /* DriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTests.swift; sourceTree = "<group>"; };
+		FF5BB6CF22CDBD8E003A9428 /* NumberFormatter+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +196,8 @@
 		FF0CE29B22CA467F00B8D01B /* MyRideTests */ = {
 			isa = PBXGroup;
 			children = (
-				FF0CE29C22CA467F00B8D01B /* MyRideTests.swift */,
+				FF5BB6CB22CDB0BE003A9428 /* Core */,
+				FF5BB6AF22CD2223003A9428 /* Scenes */,
 				FF0CE29E22CA467F00B8D01B /* Info.plist */,
 			);
 			path = MyRideTests;
@@ -205,11 +218,9 @@
 		FF0CE2A822CA543400B8D01B /* HttpService */ = {
 			isa = PBXGroup;
 			children = (
-				FF0CE30A22CBA67900B8D01B /* ServiceResponseResult.swift */,
 				FF0CE2A922CA545300B8D01B /* HttpService.swift */,
 				FF0CE2B522CA5A7100B8D01B /* HttpError.swift */,
 				FF0CE2B722CA5ADF00B8D01B /* Reachability.swift */,
-				FF0CE2B922CA5B2E00B8D01B /* MultipartFormData.swift */,
 			);
 			path = HttpService;
 			sourceTree = "<group>";
@@ -285,7 +296,6 @@
 				FF0CE2F822CB143600B8D01B /* Networking */,
 				FF0CE2E922CAF88100B8D01B /* DriversList */,
 				FF0CE2E822CAF87900B8D01B /* DriversMap */,
-				FF0CE30C22CBADD200B8D01B /* DriversCoordinator.swift */,
 			);
 			path = Drivers;
 			sourceTree = "<group>";
@@ -293,8 +303,10 @@
 		FF0CE2E822CAF87900B8D01B /* DriversMap */ = {
 			isa = PBXGroup;
 			children = (
+				FF5BB6BF22CD928D003A9428 /* DriverAnotation */,
 				FF0CE31E22CBF10500B8D01B /* ViewModel */,
 				FF0CE31D22CBF0FF00B8D01B /* ViewController */,
+				FF5BB6B622CD5521003A9428 /* DriversMapCoordinator.swift */,
 			);
 			path = DriversMap;
 			sourceTree = "<group>";
@@ -306,6 +318,7 @@
 				FF0CE2E422CAF4FD00B8D01B /* DriversListViewController.swift */,
 				FF0CE2E522CAF4FD00B8D01B /* DriversListViewController.xib */,
 				FF0CE2FB22CB252900B8D01B /* DriversListViewModel.swift */,
+				FF5BB6B822CD55A7003A9428 /* DriversListCoordinator.swift */,
 			);
 			path = DriversList;
 			sourceTree = "<group>";
@@ -313,10 +326,9 @@
 		FF0CE2EE22CAFF9000B8D01B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FF0CE2EF22CAFF9F00B8D01B /* UIViewController+Utils.swift */,
-				FF0CE2F122CB0D2900B8D01B /* UIImage+Utils.swift */,
 				FF0CE30E22CBB02A00B8D01B /* UITableView+Utils.swift */,
 				FF0CE31022CBDB6D00B8D01B /* UIColor+Utils.swift */,
+				FF5BB6CF22CDBD8E003A9428 /* NumberFormatter+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +380,68 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		FF5BB6AF22CD2223003A9428 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FF5BB6B322CD2371003A9428 /* Mocks */,
+				FF5BB6BC22CD6E90003A9428 /* DriversList */,
+				FF5BB6B022CD226E003A9428 /* DriversMap */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FF5BB6B022CD226E003A9428 /* DriversMap */ = {
+			isa = PBXGroup;
+			children = (
+				FF5BB6BD22CD6EB1003A9428 /* DriversMapViewModelTests.swift */,
+				FF5BB6C922CDAED5003A9428 /* DriverAnnotationViewModelTests.swift */,
+			);
+			path = DriversMap;
+			sourceTree = "<group>";
+		};
+		FF5BB6B322CD2371003A9428 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FF5BB6B422CD237C003A9428 /* DriversServiceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FF5BB6BC22CD6E90003A9428 /* DriversList */ = {
+			isa = PBXGroup;
+			children = (
+				FF5BB6B122CD2295003A9428 /* DriversListViewModelTests.swift */,
+				FF5BB6BA22CD5F64003A9428 /* DriverCellViewModelTests.swift */,
+			);
+			path = DriversList;
+			sourceTree = "<group>";
+		};
+		FF5BB6BF22CD928D003A9428 /* DriverAnotation */ = {
+			isa = PBXGroup;
+			children = (
+				FF5BB6C322CD94CD003A9428 /* DriverAnnotation.swift */,
+				FF5BB6C522CD94D9003A9428 /* DriverAnnotationViewModel.swift */,
+				FF5BB6C722CDA5F0003A9428 /* DriverAnnotationView.swift */,
+			);
+			path = DriverAnotation;
+			sourceTree = "<group>";
+		};
+		FF5BB6CB22CDB0BE003A9428 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FF5BB6CC22CDB0C2003A9428 /* Data */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FF5BB6CC22CDB0C2003A9428 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FF5BB6CD22CDB0D5003A9428 /* DriverTests.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -400,6 +474,7 @@
 				FF0CE29422CA467F00B8D01B /* Sources */,
 				FF0CE29522CA467F00B8D01B /* Frameworks */,
 				FF0CE29622CA467F00B8D01B /* Resources */,
+				2EC8DE2A08D0EF68FFEF5543 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -488,6 +563,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyRide/Pods-MyRide-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EC8DE2A08D0EF68FFEF5543 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyRideTests/Pods-MyRideTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyRideTests/Pods-MyRideTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyRideTests/Pods-MyRideTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7A1F30D75DA93BD9F4B9F009 /* [CP] Check Pods Manifest.lock */ = {
@@ -581,29 +673,30 @@
 				FF0CE31722CBE38D00B8D01B /* LocationHelper.swift in Sources */,
 				FF0CE2FC22CB252900B8D01B /* DriversListViewModel.swift in Sources */,
 				FF0CE2D022CA867900B8D01B /* Driver.swift in Sources */,
-				FF0CE2F022CAFF9F00B8D01B /* UIViewController+Utils.swift in Sources */,
-				FF0CE2F222CB0D2900B8D01B /* UIImage+Utils.swift in Sources */,
 				FF0CE2D522CA87B500B8D01B /* Coordinate.swift in Sources */,
 				FF0CE2C022CA777B00B8D01B /* AppCoordinator.swift in Sources */,
-				FF0CE2BA22CA5B2E00B8D01B /* MultipartFormData.swift in Sources */,
 				FF0CE30522CB9CBB00B8D01B /* DriverCellViewModel.swift in Sources */,
 				FF0CE28822CA467D00B8D01B /* AppDelegate.swift in Sources */,
 				FF0CE2B422CA5A4300B8D01B /* Strings.swift in Sources */,
 				FF0CE2FA22CB186400B8D01B /* GetDriversResponse.swift in Sources */,
 				FF0CE2F722CB141500B8D01B /* DriversAPI.swift in Sources */,
-				FF0CE30B22CBA67900B8D01B /* ServiceResponseResult.swift in Sources */,
 				FF0CE2AF22CA56C900B8D01B /* Assets.swift in Sources */,
 				FF0CE2E622CAF4FD00B8D01B /* DriversListViewController.swift in Sources */,
+				FF5BB6C622CD94D9003A9428 /* DriverAnnotationViewModel.swift in Sources */,
 				FF0CE2B622CA5A7100B8D01B /* HttpError.swift in Sources */,
 				FF0CE30722CBA49B00B8D01B /* DriversService.swift in Sources */,
 				FF0CE30922CBA51800B8D01B /* MapBounds.swift in Sources */,
 				FF0CE32122CBF12000B8D01B /* DriversMapViewModel.m in Sources */,
+				FF5BB6B922CD55A7003A9428 /* DriversListCoordinator.swift in Sources */,
+				FF5BB6B722CD5521003A9428 /* DriversMapCoordinator.swift in Sources */,
 				FF0CE2AA22CA545300B8D01B /* HttpService.swift in Sources */,
 				FF0CE30222CB9CA300B8D01B /* DriverTableViewCell.swift in Sources */,
 				FF0CE2D322CA873E00B8D01B /* FleetType.swift in Sources */,
+				FF5BB6C422CD94CD003A9428 /* DriverAnnotation.swift in Sources */,
+				FF5BB6C822CDA5F0003A9428 /* DriverAnnotationView.swift in Sources */,
 				FF0CE30F22CBB02A00B8D01B /* UITableView+Utils.swift in Sources */,
-				FF0CE30D22CBADD200B8D01B /* DriversCoordinator.swift in Sources */,
 				FF0CE31B22CBF06F00B8D01B /* DriversMapViewController.m in Sources */,
+				FF5BB6D022CDBD8E003A9428 /* NumberFormatter+Utils.swift in Sources */,
 				FF0CE2BD22CA774200B8D01B /* Coordinator.swift in Sources */,
 				FF0CE31122CBDB6D00B8D01B /* UIColor+Utils.swift in Sources */,
 			);
@@ -613,7 +706,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF0CE29D22CA467F00B8D01B /* MyRideTests.swift in Sources */,
+				FF5BB6BB22CD5F65003A9428 /* DriverCellViewModelTests.swift in Sources */,
+				FF5BB6CA22CDAED5003A9428 /* DriverAnnotationViewModelTests.swift in Sources */,
+				FF5BB6B522CD237C003A9428 /* DriversServiceMock.swift in Sources */,
+				FF5BB6CE22CDB0D5003A9428 /* DriverTests.swift in Sources */,
+				FF5BB6B222CD2295003A9428 /* DriversListViewModelTests.swift in Sources */,
+				FF5BB6BE22CD6EB1003A9428 /* DriversMapViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

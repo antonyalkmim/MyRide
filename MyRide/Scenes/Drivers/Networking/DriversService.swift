@@ -10,12 +10,12 @@ import Foundation
 
 @objcMembers class DriversService: NSObject {
     
-    var apiService: HttpService<DriversAPI> = HttpService<DriversAPI>()
+    let apiService: HttpService<DriversAPI> = HttpService<DriversAPI>()
     
-    public func getDrivers(mapBounds: MapBounds, completion: (([Driver]?, Error?) -> Void)?) {
-    
-        let request = DriversAPI.getDrivers(neCoordinate: Coordinate(coordinate: mapBounds.p1),
-                                            swCoordinate: Coordinate(coordinate: mapBounds.p2))
+    func getDrivers(mapBounds: MapBounds, completion: (([Driver]?, Error?) -> Void)?) {
+        
+        let request = DriversAPI.getDrivers(northEastCoordinate: Coordinate(coordinate: mapBounds.northEastCoordinate),
+                                            southWestCoordinate: Coordinate(coordinate: mapBounds.southWestCoortinate))
 
         apiService.request(request) { result in
             DispatchQueue.main.async {

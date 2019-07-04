@@ -24,37 +24,35 @@ struct DriverCellViewModel {
     }
     
     var latitudeFormatted: String {
-        let formater = NumberFormatter()
-        formater.groupingSeparator = ","
-        formater.numberStyle = .decimal
-        formater.maximumFractionDigits = 7
         let number = driver.coordinate.latitude as NSNumber
-        return formater.string(from: number) ?? ""
+        return NumberFormatter.coordinateFormatter.string(from: number) ?? ""
     }
     
     var longitudeFormatted: String {
-        let formater = NumberFormatter()
-        formater.groupingSeparator = ","
-        formater.numberStyle = .decimal
-        formater.maximumFractionDigits = 7
         let number = driver.coordinate.longitude as NSNumber
-        return formater.string(from: number) ?? ""
+        return NumberFormatter.coordinateFormatter.string(from: number) ?? ""
     }
     
     var distanceFormatted: String {
         let driverLocation = CLLocation(latitude: driver.coordinate.latitude,
-                              longitude: driver.coordinate.longitude)
+                                        longitude: driver.coordinate.longitude)
         
+        // distance in meters divided by 1000 to show in kilometers
         let distanceKms = userLocation.distance(from: driverLocation) / 1000
         
-        let formater = NumberFormatter()
-        formater.groupingSeparator = ","
-        formater.numberStyle = .decimal
-        formater.maximumFractionDigits = 1
-        let number = distanceKms as NSNumber
-        let distanceFormatted = formater.string(from: number) ?? "0"
+        let formatter = NumberFormatter.killometersDistanceFormatter
+        let distanceFormatted = formatter.string(from: distanceKms as NSNumber) ?? "0"
         
         return "\(distanceFormatted) km"
+    }
+    
+    var driverIcon: UIImage {
+        switch driver.fleetType {
+        case .taxi:
+            return Asset.taxiMap.image
+        case .pooling:
+            return Asset.poolingMap.image
+        }
     }
     
 }
@@ -62,9 +60,10 @@ struct DriverCellViewModel {
 extension DriverCellViewModel: Equatable { }
 
 func == (lhs: DriverCellViewModel, rhs: DriverCellViewModel) -> Bool {
-    return lhs.driver.id == rhs.driver.id
+    return lhs.driver.id == rhs.driver.id && lhs.userLocation == rhs.userLocation
 }
 
+// needs for RxDataSource Differentiator
 extension DriverCellViewModel: IdentifiableType {
     typealias Identity = String
     

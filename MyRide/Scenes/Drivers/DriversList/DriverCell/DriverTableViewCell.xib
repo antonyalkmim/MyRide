@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5V-Su-aqo">
                         <rect key="frame" x="6" y="3" width="386" height="106.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="taxi-flat" translatesAutoresizingMaskIntoConstraints="NO" id="DEk-ZZ-ja1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="taxi-map" translatesAutoresizingMaskIntoConstraints="NO" id="DEk-ZZ-ja1">
                                 <rect key="frame" x="16" y="16" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -104,6 +104,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="taxi-flat" width="24" height="24"/>
+        <image name="taxi-map" width="26" height="13.5"/>
     </resources>
 </document>

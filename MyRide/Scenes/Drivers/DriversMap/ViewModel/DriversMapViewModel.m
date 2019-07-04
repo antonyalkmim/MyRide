@@ -14,6 +14,7 @@
 @interface DriversMapViewModel ()
 @property (nonatomic, retain) NSArray<Driver*> *drivers;
 @property (nonatomic, retain) MapBounds *currentMapBounds;
+@property (nonatomic, retain) DriversService *driversService;
 @end
 
 
@@ -22,14 +23,19 @@
 @synthesize delegate;
 @synthesize drivers;
 @synthesize userLocation;
-
-DriversService *driversService;
+@synthesize driversService;
 
 - (instancetype)init
 {
+    DriversService *driversService = [[DriversService alloc] init];
+    return [self initWithDriversService:driversService];
+}
+
+- (instancetype)initWithDriversService:(DriversService *)driversService
+{
     self = [super init];
     if (self) {
-        driversService = [[DriversService alloc] init];
+        self.driversService = driversService;
     }
     return self;
 }
@@ -65,42 +71,16 @@ DriversService *driversService;
 
 // MARK: - Outputs
 
-- (NSArray<id<MKAnnotation>> *)anotationsForMap {
+- (NSArray<DriverAnnotationViewModel *> *)anotationsForMap {
     NSMutableArray *anotationsArr = [[NSMutableArray alloc] init];
-    
+
+    // create anotation viewModel
     for (Driver* driver in drivers) {
-        // create anotation
-        MKPointAnnotation *anotation = [[MKPointAnnotation alloc] init];
-        anotation.coordinate = CLLocationCoordinate2DMake(driver.coordinate.latitude, driver.coordinate.longitude);
-        
-        // Title - fleetType
-        switch (driver.fleetTypeObjc) {
-            case FleetTypeObjcTaxi:
-                anotation.title = @"Taxi";
-                break;
-            case FleetTypeObjcPooling:
-                anotation.title = @"Pooling";
-                break;
-        }
-        
-        // Subtitle - driver distance from user
-        CLLocation *driverLocation = [[CLLocation alloc] initWithLatitude:driver.coordinate.latitude
-                                                                longitude:driver.coordinate.longitude];
-        CLLocationDistance distance = [userLocation distanceFromLocation:driverLocation] / 1000;
-        
-        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-        numberFormatter.locale = [NSLocale currentLocale];
-        numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-        numberFormatter.usesGroupingSeparator = YES;
-        numberFormatter.groupingSeparator = @",";
-        numberFormatter.maximumFractionDigits = 1;
-        
-        NSString *distanceFormatted = [numberFormatter stringFromNumber: [NSNumber numberWithDouble:distance]];
-        anotation.subtitle = [NSString stringWithFormat:@"%@ km", distanceFormatted];
-        
-        [anotationsArr addObject:anotation];
+        DriverAnnotationViewModel *vm = [[DriverAnnotationViewModel alloc] initWithDriver: driver
+                                                                             userLocation: userLocation];
+        [anotationsArr addObject:vm];
     }
-    
+
     return anotationsArr;
 }
 

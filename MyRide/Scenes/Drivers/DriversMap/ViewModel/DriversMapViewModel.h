@@ -12,6 +12,8 @@
 
 @class MapBounds;
 @class DriversMapViewModel;
+@class DriversService;
+@class DriverAnnotationViewModel;
 
 @protocol DriversMapViewModelDelegate
 @optional
@@ -24,12 +26,14 @@
 @property (nonatomic, weak) id <DriversMapViewModelDelegate> delegate;
 @property (nonatomic, strong) CLLocation *userLocation;
 
+- (instancetype)initWithDriversService:(DriversService *)driversService;
+
 // inputs
 - (void)presentDriversList;
 - (void)refreshDriversWithMapBounds:(MapBounds *)mapBounds
                      withCompletion:(void (^)(NSError*))completion;
 
 // outputs
-- (NSArray<id<MKAnnotation>> *)anotationsForMap;
+- (NSArray<DriverAnnotationViewModel*> *)anotationsForMap;
 
 @end

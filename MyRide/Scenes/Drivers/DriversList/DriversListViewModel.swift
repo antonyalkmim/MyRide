@@ -18,27 +18,34 @@ protocol DriversListViewModelDelegate: AnyObject {
     func navigateBack(_ viewModel: DriversListViewModel)
 }
 
-protocol DriversListViewModelType: AnyObject {
-    // inputs
+protocol DriversListViewModelInputs {
     var closeList: PublishSubject<Void> { get }
     var refreshDrivers: PublishSubject<Void> { get }
-    
-    // outputs
+}
+
+protocol DriversListViewModelOutputs {
     var itemsViewModel: Observable<[DriverSectionViewModel]> { get }
     var isLoading: BehaviorRelay<Bool> { get }
     var errorMessage: PublishSubject<String> { get }
 }
 
-class DriversListViewModel: DriversListViewModelType {
+protocol DriversListViewModelType {
+    var inputs: DriversListViewModelInputs { get }
+    var outputs: DriversListViewModelOutputs { get }
+}
+
+class DriversListViewModel: DriversListViewModelType, DriversListViewModelInputs, DriversListViewModelOutputs {
+    
+    var inputs: DriversListViewModelInputs { return self }
+    var outputs: DriversListViewModelOutputs { return self }
     
     weak var delegate: DriversListViewModelDelegate?
     
     // MARK: - Dependencies
-    var driversService = DriversService()
+    let driversService: DriversService
     var disposeBag = DisposeBag()
     
     // MARK: - Rx Inputs
-    
     var closeList       = PublishSubject<Void>()
     var refreshDrivers  = PublishSubject<Void>()
     
@@ -65,9 +72,10 @@ class DriversListViewModel: DriversListViewModelType {
     
     // MARK: - Initializers
     
-    init(mapBounds: MapBounds, userLocation: CLLocation) {
+    init(mapBounds: MapBounds, userLocation: CLLocation, driversService: DriversService = DriversService()) {
         self.mapBounds = mapBounds
         self.userLocation = userLocation
+        self.driversService = driversService
         
         closeList.bind { [weak self] in
             guard let strongSelf = self else { return }

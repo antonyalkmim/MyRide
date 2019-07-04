@@ -16,8 +16,9 @@ class DriversListViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
-    var refreshControl = UIRefreshControl()
+    let refreshControl = UIRefreshControl()
     
     // MARK: - Dependencies
     var disposeBag = DisposeBag()
@@ -40,7 +41,7 @@ class DriversListViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         bindViews()
-        viewModel?.refreshDrivers.onNext(())
+        viewModel?.inputs.refreshDrivers.onNext(())
     }
     
     // MARK: - Privates
@@ -57,9 +58,9 @@ class DriversListViewController: UIViewController {
         tableView.estimatedRowHeight = 94
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.clear
-        tableView.registerCellWithNib(DriverTableViewCell.self)
         tableView.refreshControl = refreshControl
         tableView.contentInset = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
+        tableView.registerCellWithNib(DriverTableViewCell.self)
     }
     
     private func bindViews() {
@@ -69,11 +70,11 @@ class DriversListViewController: UIViewController {
         // Inputs
         
         navigationItem.rightBarButtonItem?.rx.tap
-            .bind(to: viewModel.closeList)
+            .bind(to: viewModel.inputs.closeList)
             .disposed(by: disposeBag)
         
         refreshControl.rx.controlEvent(.valueChanged)
-            .bind(to: viewModel.refreshDrivers)
+            .bind(to: viewModel.inputs.refreshDrivers)
             .disposed(by: disposeBag)
         
         // Outputs
@@ -86,17 +87,40 @@ class DriversListViewController: UIViewController {
             }
         )
         
-        tableView.dataSource = nil
-        
-        viewModel.itemsViewModel
-            .observeOn(MainScheduler.asyncInstance)
-            .bind(to: tableView.rx.items(dataSource: dataSource))
+        viewModel.outputs.itemsViewModel
+            .asDriver(onErrorJustReturn: [])
+            .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        viewModel.isLoading
-            .bind(to: refreshControl.rx.isRefreshing)
+        viewModel.outputs.itemsViewModel
+            .asDriver(onErrorJustReturn: [])
+            .map { !($0.first?.items.isEmpty ?? true) } //isNotEmpty?
+            .drive(emptyLabel.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.isLoading
+            .asDriver(onErrorJustReturn: false)
+            .drive(refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.errorMessage
+            .asDriver(onErrorJustReturn: "")
+            .filter { !$0.isEmpty } // only show not empty messages
+            .drive(onNext: { [weak self] message in
+                self?.showErrorMessage(message)
+            })
             .disposed(by: disposeBag)
         
     }
     
+    private func showErrorMessage(_ message: String) {
+        let alert = UIAlertController(title: L10n.Alert.Error.title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
