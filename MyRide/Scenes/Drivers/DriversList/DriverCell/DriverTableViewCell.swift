@@ -22,8 +22,8 @@ class DriverTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var vehicleTypeLabel: UILabel!
     @IBOutlet weak var driverIdentifierLabel: UILabel!
-    @IBOutlet weak var latitudeLabel: UILabel!
-    @IBOutlet weak var longitudeLabel: UILabel!
+    
+    @IBOutlet weak var coordinatesLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
     override func awakeFromNib() {
@@ -50,8 +50,7 @@ class DriverTableViewCell: UITableViewCell {
         thumbImageView.image        = viewModel?.driverIcon
         vehicleTypeLabel.text       = viewModel?.driverFleetType
         driverIdentifierLabel.text  = viewModel?.identifier
-        latitudeLabel.text          = viewModel?.latitudeFormatted
-        longitudeLabel.text         = viewModel?.longitudeFormatted
+        coordinatesLabel.text       = viewModel?.coordinatesFormatted
         distanceLabel.text          = viewModel?.distanceFormatted
     }
 }

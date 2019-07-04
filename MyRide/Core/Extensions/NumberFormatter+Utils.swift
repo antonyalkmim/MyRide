@@ -12,7 +12,7 @@ extension NumberFormatter {
     
     class var coordinateFormatter: NumberFormatter {
         let formater = NumberFormatter()
-        formater.decimalSeparator = ","
+        formater.decimalSeparator = "."
         formater.numberStyle = .decimal
         formater.maximumFractionDigits = 7
         return formater

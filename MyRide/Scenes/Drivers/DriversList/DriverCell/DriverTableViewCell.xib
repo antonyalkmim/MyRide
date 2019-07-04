@@ -46,14 +46,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="53,58500747958201" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wO5-HW-ubi">
-                                <rect key="frame" x="16" y="68" width="134" height="22.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9,807045083858156" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-tz-Imr">
-                                <rect key="frame" x="158" y="68" width="137" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="53,5850074, 10,5850074" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wO5-HW-ubi">
+                                <rect key="frame" x="16" y="68" width="161" height="22.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -74,12 +68,10 @@
                             <constraint firstItem="TAM-qc-NKE" firstAttribute="leading" secondItem="6v7-2q-ut7" secondAttribute="leading" id="aMw-y0-Ui5"/>
                             <constraint firstItem="6v7-2q-ut7" firstAttribute="leading" secondItem="DEk-ZZ-ja1" secondAttribute="trailing" constant="12" id="bLA-r1-KfU"/>
                             <constraint firstAttribute="bottom" secondItem="wO5-HW-ubi" secondAttribute="bottom" constant="16" id="bcj-vE-uss"/>
-                            <constraint firstItem="0zd-tz-Imr" firstAttribute="top" secondItem="wO5-HW-ubi" secondAttribute="top" id="bte-Mj-nXt"/>
                             <constraint firstItem="6v7-2q-ut7" firstAttribute="top" secondItem="I5V-Su-aqo" secondAttribute="top" constant="20" id="h0W-ht-J7O"/>
                             <constraint firstItem="f1g-at-llJ" firstAttribute="top" secondItem="I5V-Su-aqo" secondAttribute="top" constant="16" id="mtZ-3F-3Bs"/>
                             <constraint firstItem="DEk-ZZ-ja1" firstAttribute="top" secondItem="I5V-Su-aqo" secondAttribute="top" constant="16" id="nkV-JD-cdo"/>
                             <constraint firstItem="TAM-qc-NKE" firstAttribute="top" secondItem="6v7-2q-ut7" secondAttribute="bottom" constant="2" id="sU2-Pc-1yy"/>
-                            <constraint firstItem="0zd-tz-Imr" firstAttribute="leading" secondItem="wO5-HW-ubi" secondAttribute="trailing" constant="8" id="tVb-EN-DHo"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -92,10 +84,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="coordinatesLabel" destination="wO5-HW-ubi" id="INJ-5n-35N"/>
                 <outlet property="distanceLabel" destination="TAM-qc-NKE" id="eqi-Po-nDj"/>
                 <outlet property="driverIdentifierLabel" destination="f1g-at-llJ" id="Q0g-Xy-sap"/>
-                <outlet property="latitudeLabel" destination="wO5-HW-ubi" id="gAR-AT-m0A"/>
-                <outlet property="longitudeLabel" destination="0zd-tz-Imr" id="HZn-us-Jqn"/>
                 <outlet property="thumbImageView" destination="DEk-ZZ-ja1" id="e7V-xh-vAS"/>
                 <outlet property="vehicleTypeLabel" destination="6v7-2q-ut7" id="o3a-5G-Qud"/>
                 <outlet property="wrapperView" destination="I5V-Su-aqo" id="hct-mN-m1F"/>

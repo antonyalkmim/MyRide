@@ -12,16 +12,24 @@ import CoreLocation
 
 class DriversMapCoordinator: Coordinator {
     
-    // DriversMap
-    var navigationController: UINavigationController
+    var rootViewController: UIViewController?
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        super.init()
+    private let navigationController: UINavigationController
+    
+    // MARK: - ChildCoordinators
+    
+    private var driversListCoordinator: DriversListCoordinator?
+    
+    // MARK: - Initializer
+    
+    init() {
+        self.navigationController = UINavigationController()
         self.rootViewController = navigationController
     }
     
-    override func start() {
+    // MARK: - Coordinator
+    
+    func start() {
         let driversMapViewModel = DriversMapViewModel()
         driversMapViewModel.delegate = self
         let driversMapViewController = DriversMapViewController(viewModel: driversMapViewModel)
@@ -29,18 +37,24 @@ class DriversMapCoordinator: Coordinator {
         navigationController.setViewControllers([driversMapViewController], animated: false)
     }
     
+    func stop() {
+        driversListCoordinator = nil
+    }
+    
+    // MARK: - Private flows
+    
     private func showDriversList(mapBounds: MapBounds, userLocation: CLLocation) {
         guard let rootViewController = rootViewController else { return }
-        let driversListCoordinator = DriversListCoordinator(viewController: rootViewController,
+        driversListCoordinator = DriversListCoordinator(viewController: rootViewController,
                                                             mapBounds: mapBounds,
                                                             userLocation: userLocation)
-        driversListCoordinator.start()
-        store(coordinator: driversListCoordinator)
+        driversListCoordinator?.start()
     }
     
 }
 
 // MARK: - DriversMapViewModelDelegate
+
 extension DriversMapCoordinator: DriversMapViewModelDelegate {
     func shouldPresentList(_ viewModel: DriversMapViewModel!, with mapBounds: MapBounds!, andUserLocation userLocation: CLLocation!) {
         showDriversList(mapBounds: mapBounds, userLocation: userLocation)

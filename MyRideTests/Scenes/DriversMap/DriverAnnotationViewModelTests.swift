@@ -12,9 +12,7 @@ import XCTest
 
 class DriverAnnotationViewModelTests: XCTestCase {
     
-    var viewModel: DriverAnnotationViewModel!
-    
-    func testRefreshDriversWithMapBounds() {
+    func testOutputBindings() {
         
         let fakeUserLocation = CLLocation(latitude: 53.56658, longitude: 10.039179)
         

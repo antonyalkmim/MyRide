@@ -51,6 +51,7 @@
 		FF5BB6CA22CDAED5003A9428 /* DriverAnnotationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6C922CDAED5003A9428 /* DriverAnnotationViewModelTests.swift */; };
 		FF5BB6CE22CDB0D5003A9428 /* DriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6CD22CDB0D5003A9428 /* DriverTests.swift */; };
 		FF5BB6D022CDBD8E003A9428 /* NumberFormatter+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6CF22CDBD8E003A9428 /* NumberFormatter+Utils.swift */; };
+		FF5BB6D222CDCD4B003A9428 /* DriverAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6D122CDCD4B003A9428 /* DriverAnnotationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		FF5BB6C922CDAED5003A9428 /* DriverAnnotationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotationViewModelTests.swift; sourceTree = "<group>"; };
 		FF5BB6CD22CDB0D5003A9428 /* DriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTests.swift; sourceTree = "<group>"; };
 		FF5BB6CF22CDBD8E003A9428 /* NumberFormatter+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Utils.swift"; sourceTree = "<group>"; };
+		FF5BB6D122CDCD4B003A9428 /* DriverAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +397,7 @@
 			children = (
 				FF5BB6BD22CD6EB1003A9428 /* DriversMapViewModelTests.swift */,
 				FF5BB6C922CDAED5003A9428 /* DriverAnnotationViewModelTests.swift */,
+				FF5BB6D122CDCD4B003A9428 /* DriverAnnotationTests.swift */,
 			);
 			path = DriversMap;
 			sourceTree = "<group>";
@@ -419,8 +422,8 @@
 		FF5BB6BF22CD928D003A9428 /* DriverAnotation */ = {
 			isa = PBXGroup;
 			children = (
-				FF5BB6C322CD94CD003A9428 /* DriverAnnotation.swift */,
 				FF5BB6C522CD94D9003A9428 /* DriverAnnotationViewModel.swift */,
+				FF5BB6C322CD94CD003A9428 /* DriverAnnotation.swift */,
 				FF5BB6C722CDA5F0003A9428 /* DriverAnnotationView.swift */,
 			);
 			path = DriverAnotation;
@@ -706,6 +709,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5BB6D222CDCD4B003A9428 /* DriverAnnotationTests.swift in Sources */,
 				FF5BB6BB22CD5F65003A9428 /* DriverCellViewModelTests.swift in Sources */,
 				FF5BB6CA22CDAED5003A9428 /* DriverAnnotationViewModelTests.swift in Sources */,
 				FF5BB6B522CD237C003A9428 /* DriversServiceMock.swift in Sources */,

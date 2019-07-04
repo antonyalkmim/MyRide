@@ -1,31 +1,31 @@
 //
-//  DriverCellViewModelTests.swift
+//  DriverAnnotationTests.swift
 //  MyRideTests
 //
-//  Created by Antony Alkmim on 03/07/19.
+//  Created by Antony Alkmim on 04/07/19.
 //  Copyright © 2019 Antony Alkmim. All rights reserved.
 //
 
 import XCTest
-import CoreLocation
 
 @testable import MyRide
 
-class DriverCellViewModelTests: XCTestCase {
+class DriverAnnotationTests: XCTestCase {
     
-    func testOutputBindings() {
-        // user in hamburg
+    func testInitAnnotation() {
+        
         let fakeUserLocation = CLLocation(latitude: 53.56658, longitude: 10.039179)
+        let vm = DriverAnnotationViewModel(driver: driverMock, userLocation: fakeUserLocation)
         
-        let vm = DriverCellViewModel(driver: driverMock, userLocation: fakeUserLocation)
+        let annotation = DriverAnnotation(viewModel: vm)
         
-        XCTAssertEqual(vm, vm)
-        XCTAssertEqual(vm.identifier, "#739330")
-        XCTAssertEqual(vm.driverFleetType, "Taxi")
-        XCTAssertEqual(vm.coordinatesFormatted, "53.6688066, 10.0199089")
-        XCTAssertEqual(vm.distanceFormatted, "11,4 km")
-        XCTAssertEqual(vm.driverIcon, Asset.taxiMap.image)
+        XCTAssertEqual(annotation.coordinate.latitude, driverMock.coordinate.latitude)
+        XCTAssertEqual(annotation.coordinate.longitude, driverMock.coordinate.longitude)
+        XCTAssertEqual(annotation.title, "Taxi")
+        XCTAssertEqual(annotation.subtitle, "11,4 km")
     }
+    
+    // MARK: - Mocks
     
     var driverMock: Driver {
         let jsonData = """
@@ -42,5 +42,5 @@ class DriverCellViewModelTests: XCTestCase {
         
         return try! JSONDecoder().decode(Driver.self, from: jsonData)
     }
-    
 }
+

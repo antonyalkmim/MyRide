@@ -12,20 +12,20 @@ import CoreLocation
 
 class DriversListCoordinator: Coordinator {
     
-    // Drivers List
+    var rootViewController: UIViewController?
+    
     var driversListNavigation: UINavigationController?
     
-    let mapBounds: MapBounds
-    let userLocation: CLLocation
+    private let mapBounds: MapBounds
+    private let userLocation: CLLocation
     
     init(viewController: UIViewController, mapBounds: MapBounds, userLocation: CLLocation) {
+        self.rootViewController = viewController
         self.mapBounds = mapBounds
         self.userLocation = userLocation
-        super.init()
-        self.rootViewController = viewController
     }
     
-    override func start() {
+    func start() {
         let driversViewModel = DriversListViewModel(mapBounds: mapBounds, userLocation: userLocation)
         driversViewModel.delegate = self
         let driversListViewController = DriversListViewController(viewModel: driversViewModel)
@@ -33,6 +33,11 @@ class DriversListCoordinator: Coordinator {
         let navigation = UINavigationController(rootViewController: driversListViewController)
         driversListNavigation = navigation
         rootViewController?.present(navigation, animated: true, completion: nil)
+    }
+    
+    func stop() {
+        driversListNavigation = nil
+        rootViewController = nil
     }
     
 }

@@ -23,14 +23,15 @@ struct DriverCellViewModel {
         return "\(driver.fleetType)".capitalized
     }
     
-    var latitudeFormatted: String {
-        let number = driver.coordinate.latitude as NSNumber
-        return NumberFormatter.coordinateFormatter.string(from: number) ?? ""
-    }
-    
-    var longitudeFormatted: String {
-        let number = driver.coordinate.longitude as NSNumber
-        return NumberFormatter.coordinateFormatter.string(from: number) ?? ""
+    var coordinatesFormatted: String {
+        // latitude
+        let latNumber = driver.coordinate.latitude as NSNumber
+        let latFormatted = NumberFormatter.coordinateFormatter.string(from: latNumber) ?? ""
+        //longitude
+        let longNumber = driver.coordinate.longitude as NSNumber
+        let longFormatted = NumberFormatter.coordinateFormatter.string(from: longNumber) ?? ""
+        
+        return "\(latFormatted), \(longFormatted)"
     }
     
     var distanceFormatted: String {

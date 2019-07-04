@@ -89,7 +89,7 @@ class HttpService<Target: TargetType>: HttpServiceType {
         
         self.session = urlSession ?? URLSession(
             configuration: URLSessionConfiguration.default,
-            delegate: HttpServiceSessionDelegate(),
+            delegate: nil,
             delegateQueue: nil
         )
         self.requestClosure = requestClosure
@@ -139,21 +139,4 @@ class HttpService<Target: TargetType>: HttpServiceType {
         return task
     }
     
-}
-
-// MARK: - SSL Pinning
-
-public class HttpServiceSessionDelegate: NSObject, URLSessionDelegate {
-    
-    public func urlSession(_ session: URLSession,
-                           didReceive challenge: URLAuthenticationChallenge,
-                           completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        if challenge.previousFailureCount > 0 {
-            completionHandler(URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
-        } else if let serverTrust = challenge.protectionSpace.serverTrust {
-            completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: serverTrust))
-        } else {
-            print("unknown state. error: ")
-        }
-    }
 }
