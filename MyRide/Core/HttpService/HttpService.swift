@@ -8,15 +8,10 @@
 
 import Foundation
 
-enum TargetTypeTask {
-    case requestPlain
-}
-
 protocol TargetType {
     var baseURL: URL { get }
     var path: String { get }
     var method: HttpMethod { get }
-    var task: TargetTypeTask { get }
     var body: Data? { get }
     var headers: [String: String]? { get }
     var sampleData: Data { get }
@@ -72,13 +67,16 @@ protocol HttpServiceType: class {
 
 class HttpService<Target: TargetType>: HttpServiceType {
     
+    /// closure executed before request
     typealias RequestClosure = (Target) -> URLRequest
+    
+    /// closure executed after response
     typealias ResponseClosure = (HTTPURLResponse?, Data?) -> Void
     
+    private var returnSampleData: Bool
     private var requestClosure: RequestClosure
     private var responseClosure: ResponseClosure
     public let session: URLSession
-    private var returnSampleData: Bool
     
     // MARK: - Initializer
     
@@ -93,8 +91,8 @@ class HttpService<Target: TargetType>: HttpServiceType {
             delegateQueue: nil
         )
         self.requestClosure = requestClosure
-        self.returnSampleData = returnSampleData
         self.responseClosure = responseClosure
+        self.returnSampleData = returnSampleData
     }
     
     @discardableResult

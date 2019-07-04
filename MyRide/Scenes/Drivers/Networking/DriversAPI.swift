@@ -36,11 +36,6 @@ extension DriversAPI: TargetType {
         }
     }
     
-    // Request type
-    var task: TargetTypeTask {
-        return .requestPlain
-    }
-    
     // Request JSON Body
     var body: Data? {
         return nil

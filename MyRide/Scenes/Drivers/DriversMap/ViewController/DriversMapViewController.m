@@ -19,6 +19,8 @@
 
 @implementation DriversMapViewController
 
+NSString * const kDriverAnnotationView = @"kDriverAnnotationView";
+
 - (instancetype)initWithViewModel:(DriversMapViewModel *)viewModel {
     self = [super initWithNibName:@"DriversMapViewController" bundle: NULL];
     if (!self) return NULL;
@@ -59,7 +61,7 @@
     // mapview
     _mapView.showsUserLocation = YES;
     _mapView.delegate = self;
-    [_mapView registerClass:[DriverAnnotationView class] forAnnotationViewWithReuseIdentifier:@"kDriverAnnotationView"];
+    [_mapView registerClass:[DriverAnnotationView class] forAnnotationViewWithReuseIdentifier: kDriverAnnotationView];
 }
     
 - (void)showList {
@@ -138,10 +140,10 @@
     
     // setup DriverAnnotationView with its viewModel
     
-    DriverAnnotationView *annotationView = (DriverAnnotationView*) [mapView dequeueReusableAnnotationViewWithIdentifier:@"kDriverAnnotationView"];
+    DriverAnnotationView *annotationView = (DriverAnnotationView*) [mapView dequeueReusableAnnotationViewWithIdentifier:kDriverAnnotationView];
     if (annotationView == nil) {
         annotationView = [[DriverAnnotationView alloc] initWithAnnotation:annotation
-                                                      reuseIdentifier:@"kDriverAnnotationView"];
+                                                      reuseIdentifier:kDriverAnnotationView];
     } else {
         annotationView.annotation = annotation;
     }

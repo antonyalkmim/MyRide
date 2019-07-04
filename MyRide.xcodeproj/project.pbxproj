@@ -338,9 +338,9 @@
 		FF0CE2F822CB143600B8D01B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				FF5BB6D322CDD5F3003A9428 /* Responses */,
 				FF0CE30622CBA49B00B8D01B /* DriversService.swift */,
 				FF0CE2F622CB141500B8D01B /* DriversAPI.swift */,
-				FF0CE2F922CB186400B8D01B /* GetDriversResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -443,6 +443,14 @@
 				FF5BB6CD22CDB0D5003A9428 /* DriverTests.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		FF5BB6D322CDD5F3003A9428 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				FF0CE2F922CB186400B8D01B /* GetDriversResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
