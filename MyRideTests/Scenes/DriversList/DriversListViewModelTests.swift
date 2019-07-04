@@ -93,7 +93,7 @@ class DriversListViewModelTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
         let isLoadingObserver = scheduler.createObserver(Bool.self)
         
-        viewModel.outputs.isLoading
+        viewModel.outputs.isLoading.asObservable()
             .subscribe(isLoadingObserver)
             .disposed(by: disposeBag)
         

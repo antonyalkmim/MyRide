@@ -103,6 +103,11 @@ class DriversListViewController: UIViewController {
             .drive(refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
         
+        viewModel.outputs.isLoading
+            .asDriver(onErrorJustReturn: false)
+            .drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
+            .disposed(by: disposeBag)
+        
         viewModel.outputs.errorMessage
             .asDriver(onErrorJustReturn: "")
             .filter { !$0.isEmpty } // only show not empty messages

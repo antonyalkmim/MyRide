@@ -52,6 +52,8 @@
 		FF5BB6CE22CDB0D5003A9428 /* DriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6CD22CDB0D5003A9428 /* DriverTests.swift */; };
 		FF5BB6D022CDBD8E003A9428 /* NumberFormatter+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6CF22CDBD8E003A9428 /* NumberFormatter+Utils.swift */; };
 		FF5BB6D222CDCD4B003A9428 /* DriverAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6D122CDCD4B003A9428 /* DriverAnnotationTests.swift */; };
+		FF5BB6D722CE7B8F003A9428 /* DriversService+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6D622CE7B8F003A9428 /* DriversService+Rx.swift */; };
+		FF5BB6D922CE7F43003A9428 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6D822CE7F43003A9428 /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 		FF5BB6CD22CDB0D5003A9428 /* DriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTests.swift; sourceTree = "<group>"; };
 		FF5BB6CF22CDBD8E003A9428 /* NumberFormatter+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Utils.swift"; sourceTree = "<group>"; };
 		FF5BB6D122CDCD4B003A9428 /* DriverAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotationTests.swift; sourceTree = "<group>"; };
+		FF5BB6D622CE7B8F003A9428 /* DriversService+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DriversService+Rx.swift"; sourceTree = "<group>"; };
+		FF5BB6D822CE7F43003A9428 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 				FF0CE2D622CA894200B8D01B /* Data */,
 				FF0CE2BB22CA773300B8D01B /* Coordinator */,
 				FF0CE2A822CA543400B8D01B /* HttpService */,
+				FF5BB6D822CE7F43003A9428 /* ActivityIndicator.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				FF5BB6D322CDD5F3003A9428 /* Responses */,
 				FF0CE30622CBA49B00B8D01B /* DriversService.swift */,
 				FF0CE2F622CB141500B8D01B /* DriversAPI.swift */,
+				FF5BB6D622CE7B8F003A9428 /* DriversService+Rx.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -701,12 +707,14 @@
 				FF5BB6B922CD55A7003A9428 /* DriversListCoordinator.swift in Sources */,
 				FF5BB6B722CD5521003A9428 /* DriversMapCoordinator.swift in Sources */,
 				FF0CE2AA22CA545300B8D01B /* HttpService.swift in Sources */,
+				FF5BB6D722CE7B8F003A9428 /* DriversService+Rx.swift in Sources */,
 				FF0CE30222CB9CA300B8D01B /* DriverTableViewCell.swift in Sources */,
 				FF0CE2D322CA873E00B8D01B /* FleetType.swift in Sources */,
 				FF5BB6C422CD94CD003A9428 /* DriverAnnotation.swift in Sources */,
 				FF5BB6C822CDA5F0003A9428 /* DriverAnnotationView.swift in Sources */,
 				FF0CE30F22CBB02A00B8D01B /* UITableView+Utils.swift in Sources */,
 				FF0CE31B22CBF06F00B8D01B /* DriversMapViewController.m in Sources */,
+				FF5BB6D922CE7F43003A9428 /* ActivityIndicator.swift in Sources */,
 				FF5BB6D022CDBD8E003A9428 /* NumberFormatter+Utils.swift in Sources */,
 				FF0CE2BD22CA774200B8D01B /* Coordinator.swift in Sources */,
 				FF0CE31122CBDB6D00B8D01B /* UIColor+Utils.swift in Sources */,

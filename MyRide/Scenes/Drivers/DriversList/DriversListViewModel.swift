@@ -11,6 +11,7 @@ import RxDataSources
 import RxSwift
 import RxRelay
 import CoreLocation
+import RxCocoa
 
 typealias DriverSectionViewModel = AnimatableSectionModel<String, DriverCellViewModel>
 
@@ -24,9 +25,9 @@ protocol DriversListViewModelInputs {
 }
 
 protocol DriversListViewModelOutputs {
-    var itemsViewModel: Observable<[DriverSectionViewModel]> { get }
-    var isLoading: BehaviorRelay<Bool> { get }
+    var isLoading: ActivityIndicator { get }
     var errorMessage: PublishSubject<String> { get }
+    var itemsViewModel: Observable<[DriverSectionViewModel]> { get }
 }
 
 protocol DriversListViewModelType {
@@ -43,15 +44,14 @@ class DriversListViewModel: DriversListViewModelType, DriversListViewModelInputs
     
     // MARK: - Dependencies
     let driversService: DriversService
-    var disposeBag = DisposeBag()
     
     // MARK: - Rx Inputs
     var closeList       = PublishSubject<Void>()
     var refreshDrivers  = PublishSubject<Void>()
     
     // MARK: - Rx Outputs
-    var isLoading       = BehaviorRelay<Bool>(value: false)
-    var errorMessage    = PublishSubject<String>()
+    var isLoading = ActivityIndicator()
+    var errorMessage = PublishSubject<String>()
     var itemsViewModel: Observable<[DriverSectionViewModel]> {
         return drivers
             .asObservable()
@@ -60,7 +60,7 @@ class DriversListViewModel: DriversListViewModelType, DriversListViewModelInputs
                 let vms = drivers.map { DriverCellViewModel(driver: $0, userLocation: strongSelf.userLocation) }
                 let section = DriverSectionViewModel(model: "", items: vms)
                 return [section]
-            }
+        }
     }
     
     // MARK: - Private
@@ -69,6 +69,8 @@ class DriversListViewModel: DriversListViewModelType, DriversListViewModelInputs
     
     private let userLocation: CLLocation
     let mapBounds: MapBounds
+    
+    var disposeBag = DisposeBag()
     
     // MARK: - Initializers
     
@@ -88,18 +90,17 @@ class DriversListViewModel: DriversListViewModelType, DriversListViewModelInputs
     }
     
     private func loadDrivers() {
-        isLoading.accept(true)
-        
-        driversService.getDrivers(mapBounds: mapBounds) { [weak self] (drivers, error) in
-            self?.isLoading.accept(false)
-            
-            if let error = error {
-                self?.errorMessage.onNext(error.localizedDescription)
-                return
-            }
-            
-            self?.drivers.accept(drivers ?? [])
-        }
-        
+        driversService.rx.getDrivers(mapBounds: self.mapBounds)
+            .trackActivity(self.isLoading)
+            .subscribe { [weak self] event in
+                switch event {
+                case .next(let drivers):
+                    self?.drivers.accept(drivers)
+                case .error(let err):
+                    self?.errorMessage.onNext(err.localizedDescription)
+                default: break
+                }
+            }.disposed(by: disposeBag)
     }
+    
 }
