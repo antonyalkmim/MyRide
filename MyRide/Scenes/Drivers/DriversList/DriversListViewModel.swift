@@ -44,14 +44,17 @@ class DriversListViewModel: DriversListViewModelType, DriversListViewModelInputs
     weak var delegate: DriversListViewModelDelegate?
     
     // MARK: - Dependencies
+    
     let driversService: DriversService
     let geocoderService: GeocoderService
     
     // MARK: - Rx Inputs
+    
     var closeList       = PublishSubject<Void>()
     var refreshDrivers  = PublishSubject<Void>()
     
     // MARK: - Rx Outputs
+    
     var cityName        = BehaviorSubject<String>(value: "-")
     var errorMessage    = PublishSubject<String>()
     var isLoading       = ActivityIndicator()
