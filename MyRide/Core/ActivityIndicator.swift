@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ActivityIndicator.swift
 //  RxExample
@@ -8,7 +9,7 @@
 import RxSwift
 import RxCocoa
 
-private struct ActivityToken<E> : ObservableConvertibleType, Disposable {
+private struct ActivityToken<E>: ObservableConvertibleType, Disposable {
     private let _source: Observable<E>
     private let _dispose: Cancelable
     
@@ -31,7 +32,7 @@ private struct ActivityToken<E> : ObservableConvertibleType, Disposable {
  If there is at least one sequence computation in progress, `true` will be sent.
  When all activities complete `false` will be sent.
  */
-public class ActivityIndicator : SharedSequenceConvertibleType {
+public class ActivityIndicator: SharedSequenceConvertibleType {
     public typealias Element = Bool
     public typealias SharingStrategy = DriverSharingStrategy
     
@@ -76,3 +77,4 @@ extension ObservableConvertibleType {
         return activityIndicator.trackActivityOfObservable(self)
     }
 }
+// swiftlint:enable

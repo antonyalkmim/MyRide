@@ -20,3 +20,19 @@ import CoreLocation
         self.southWestCoortinate = southWestCoortinate
     }
 }
+
+extension MapBounds {
+    
+    var centerCoordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D.centerCoordinate(northEastCoordinate: northEastCoordinate,
+                                                       southWestCoordinate: southWestCoortinate)
+    }
+    
+    // Hamburg Bounds
+    class var hamburgBounds: MapBounds {
+        let neCoordinate = CLLocationCoordinate2D(latitude: 53.694865, longitude: 9.757589)
+        let swCoordinate = CLLocationCoordinate2D(latitude: 53.394655, longitude: 10.099891)
+        
+        return MapBounds(northEastCoordinate: neCoordinate, southWestCoortinate: swCoordinate)
+    }
+}

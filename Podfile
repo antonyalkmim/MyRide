@@ -2,8 +2,6 @@ use_frameworks!
 
 target 'MyRide' do
   
-  
-
   #Tools
   pod 'SwiftGen', '~> 6.0'
   pod 'SwiftLint'

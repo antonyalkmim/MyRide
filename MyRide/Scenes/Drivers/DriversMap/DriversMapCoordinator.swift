@@ -45,6 +45,7 @@ class DriversMapCoordinator: Coordinator {
     
     private func showDriversList(mapBounds: MapBounds, userLocation: CLLocation) {
         guard let rootViewController = rootViewController else { return }
+        
         driversListCoordinator = DriversListCoordinator(viewController: rootViewController,
                                                             mapBounds: mapBounds,
                                                             userLocation: userLocation)
@@ -57,6 +58,10 @@ class DriversMapCoordinator: Coordinator {
 
 extension DriversMapCoordinator: DriversMapViewModelDelegate {
     func shouldPresentList(_ viewModel: DriversMapViewModel!, with mapBounds: MapBounds!, andUserLocation userLocation: CLLocation!) {
-        showDriversList(mapBounds: mapBounds, userLocation: userLocation)
+        
+        // Show drivers inside hamburg bounds
+        // NOTE: to show drivers inside current visible map bounds, just use mapBounds from delegate
+        showDriversList(mapBounds: MapBounds.hamburgBounds,
+                        userLocation: userLocation)
     }
 }

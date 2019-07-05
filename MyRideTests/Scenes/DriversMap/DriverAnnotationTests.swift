@@ -22,7 +22,7 @@ class DriverAnnotationTests: XCTestCase {
         XCTAssertEqual(annotation.coordinate.latitude, driverMock.coordinate.latitude)
         XCTAssertEqual(annotation.coordinate.longitude, driverMock.coordinate.longitude)
         XCTAssertEqual(annotation.title, "Taxi")
-        XCTAssertEqual(annotation.subtitle, "11,4 km")
+        XCTAssertEqual(annotation.subtitle, "11.4 km")
     }
     
     // MARK: - Mocks

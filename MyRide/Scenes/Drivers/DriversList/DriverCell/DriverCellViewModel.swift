@@ -15,6 +15,8 @@ struct DriverCellViewModel {
     let driver: Driver
     let userLocation: CLLocation
     
+    // MARK: - Bindings
+    
     var identifier: String {
         return "#\(driver.id)"
     }
@@ -34,6 +36,7 @@ struct DriverCellViewModel {
         return "\(latFormatted), \(longFormatted)"
     }
     
+    // distance in kilometers formatted
     var distanceFormatted: String {
         let driverLocation = CLLocation(latitude: driver.coordinate.latitude,
                                         longitude: driver.coordinate.longitude)
@@ -47,6 +50,7 @@ struct DriverCellViewModel {
         return "\(distanceFormatted) km"
     }
     
+    // thumb image icon
     var driverIcon: UIImage {
         switch driver.fleetType {
         case .taxi:

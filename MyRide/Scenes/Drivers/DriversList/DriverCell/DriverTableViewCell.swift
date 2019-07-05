@@ -25,6 +25,7 @@ class DriverTableViewCell: UITableViewCell {
     
     @IBOutlet weak var coordinatesLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var distanceLabelWrapper: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,8 +43,8 @@ class DriverTableViewCell: UITableViewCell {
         thumbImageView.layer.cornerRadius = thumbImageView.bounds.width / 2
         
         // distance label with rounded corners
-        distanceLabel.clipsToBounds = true
-        distanceLabel.layer.cornerRadius = distanceLabel.bounds.height / 2
+        distanceLabelWrapper.clipsToBounds = true
+        distanceLabelWrapper.layer.cornerRadius = distanceLabelWrapper.bounds.height / 2
     }
     
     private func bindUI() {

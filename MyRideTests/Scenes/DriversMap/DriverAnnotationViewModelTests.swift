@@ -22,7 +22,7 @@ class DriverAnnotationViewModelTests: XCTestCase {
         XCTAssertEqual(vm.coordinate.longitude, driverMock.coordinate.longitude)
         
         XCTAssertEqual(vm.title, "Taxi")
-        XCTAssertEqual(vm.subtitle, "11,4 km")
+        XCTAssertEqual(vm.subtitle, "11.4 km")
         XCTAssertEqual(vm.pinImage, Asset.taxiMap.image)
     }
     

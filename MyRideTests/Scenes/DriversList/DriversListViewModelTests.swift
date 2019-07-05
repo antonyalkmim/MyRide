@@ -11,6 +11,9 @@ import RxSwift
 import RxDataSources
 import RxBlocking
 import RxTest
+import CoreLocation
+import Intents
+import Contacts
 
 @testable import MyRide
 
@@ -19,34 +22,40 @@ class DriversListViewModelTests: XCTestCase {
     var viewModel: DriversListViewModelType!
     var disposeBag: DisposeBag!
     var driversServiceMock: DriversServiceMock!
+    var geocoderServiceMock: GeocoderServiceMock!
     
     var delegateExpectation: XCTestExpectation!
     var delegateMock: DriversListViewModelDelegateMock?
+    
+    // hamburg area
+    let mapBounds = MapBounds(northEastCoordinate: CLLocationCoordinate2D(latitude: 53.694865, longitude: 9.757589),
+                              southWestCoortinate: CLLocationCoordinate2D(latitude: 53.394655, longitude: 10.099891))
+    
+    // user in hamburg
+    let fakeUserLocation = CLLocation(latitude: 53.56658, longitude: 10.039179)
     
     override func setUp() {
         
         disposeBag = DisposeBag()
         
+        // initialize mocks
         delegateMock = DriversListViewModelDelegateMock()
         driversServiceMock = DriversServiceMock()
         
+        geocoderServiceMock = GeocoderServiceMock()
+        
         // setup viewModel
-        // hamburg area
-        let mapBounds = MapBounds(northEastCoordinate: CLLocationCoordinate2D(latitude: 53.694865, longitude: 9.757589),
-                                  southWestCoortinate: CLLocationCoordinate2D(latitude: 53.394655, longitude: 10.099891))
-        
-        // user in hamburg
-        let fakeUserLocation = CLLocation(latitude: 53.56658, longitude: 10.039179)
-        
         let vm = DriversListViewModel(mapBounds: mapBounds,
                                       userLocation: fakeUserLocation,
-                                      driversService: driversServiceMock)
+                                      driversService: driversServiceMock,
+                                      geocoderService: geocoderServiceMock)
         vm.delegate = delegateMock
         viewModel = vm
         
     }
     
     override func tearDown() {
+        geocoderServiceMock = nil
         driversServiceMock = nil
         viewModel = nil
         disposeBag = nil
@@ -116,6 +125,11 @@ class DriversListViewModelTests: XCTestCase {
         wait(for: [delegateExpectation], timeout: 1)
     }
     
+    func testLoadCityName() {
+        let cityName = try? viewModel.outputs.cityName.toBlocking().first()
+        XCTAssertEqual(cityName, "Hamburg Test")
+    }
+    
     // MARK: - Data Mock
     
     var driversMock: [Driver] {
@@ -148,5 +162,13 @@ class DriversListViewModelDelegateMock: DriversListViewModelDelegate {
     var delegateExpectation: XCTestExpectation?
     func navigateBack(_ viewModel: DriversListViewModel) {
         delegateExpectation?.fulfill()
+    }
+}
+
+
+class GeocoderServiceMock: GeocoderService {
+    
+    override func getCityName(location: CLLocation, completion: @escaping (String?) -> Void) {
+        completion("Hamburg Test")
     }
 }

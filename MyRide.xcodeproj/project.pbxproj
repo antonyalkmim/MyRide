@@ -54,6 +54,8 @@
 		FF5BB6D222CDCD4B003A9428 /* DriverAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6D122CDCD4B003A9428 /* DriverAnnotationTests.swift */; };
 		FF5BB6D722CE7B8F003A9428 /* DriversService+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6D622CE7B8F003A9428 /* DriversService+Rx.swift */; };
 		FF5BB6D922CE7F43003A9428 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6D822CE7F43003A9428 /* ActivityIndicator.swift */; };
+		FF5BB6DB22CEBB38003A9428 /* CLLocation+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6DA22CEBB38003A9428 /* CLLocation+Utils.swift */; };
+		FF5BB6DF22CECC5E003A9428 /* GeocoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5BB6DE22CECC5E003A9428 /* GeocoderService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,8 @@
 		FF5BB6D122CDCD4B003A9428 /* DriverAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotationTests.swift; sourceTree = "<group>"; };
 		FF5BB6D622CE7B8F003A9428 /* DriversService+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DriversService+Rx.swift"; sourceTree = "<group>"; };
 		FF5BB6D822CE7F43003A9428 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		FF5BB6DA22CEBB38003A9428 /* CLLocation+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Utils.swift"; sourceTree = "<group>"; };
+		FF5BB6DE22CECC5E003A9428 /* GeocoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +340,7 @@
 				FF0CE30E22CBB02A00B8D01B /* UITableView+Utils.swift */,
 				FF0CE31022CBDB6D00B8D01B /* UIColor+Utils.swift */,
 				FF5BB6CF22CDBD8E003A9428 /* NumberFormatter+Utils.swift */,
+				FF5BB6DA22CEBB38003A9428 /* CLLocation+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				FF0CE31622CBE38D00B8D01B /* LocationHelper.swift */,
+				FF5BB6DE22CECC5E003A9428 /* GeocoderService.swift */,
 			);
 			path = LocationManager;
 			sourceTree = "<group>";
@@ -690,6 +696,7 @@
 				FF0CE31722CBE38D00B8D01B /* LocationHelper.swift in Sources */,
 				FF0CE2FC22CB252900B8D01B /* DriversListViewModel.swift in Sources */,
 				FF0CE2D022CA867900B8D01B /* Driver.swift in Sources */,
+				FF5BB6DB22CEBB38003A9428 /* CLLocation+Utils.swift in Sources */,
 				FF0CE2D522CA87B500B8D01B /* Coordinate.swift in Sources */,
 				FF0CE2C022CA777B00B8D01B /* AppCoordinator.swift in Sources */,
 				FF0CE30522CB9CBB00B8D01B /* DriverCellViewModel.swift in Sources */,
@@ -716,6 +723,7 @@
 				FF0CE31B22CBF06F00B8D01B /* DriversMapViewController.m in Sources */,
 				FF5BB6D922CE7F43003A9428 /* ActivityIndicator.swift in Sources */,
 				FF5BB6D022CDBD8E003A9428 /* NumberFormatter+Utils.swift in Sources */,
+				FF5BB6DF22CECC5E003A9428 /* GeocoderService.swift in Sources */,
 				FF0CE2BD22CA774200B8D01B /* Coordinator.swift in Sources */,
 				FF0CE31122CBDB6D00B8D01B /* UIColor+Utils.swift in Sources */,
 			);

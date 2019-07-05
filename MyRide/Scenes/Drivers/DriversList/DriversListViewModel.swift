@@ -25,6 +25,7 @@ protocol DriversListViewModelInputs {
 }
 
 protocol DriversListViewModelOutputs {
+    var cityName: BehaviorSubject<String> { get }
     var isLoading: ActivityIndicator { get }
     var errorMessage: PublishSubject<String> { get }
     var itemsViewModel: Observable<[DriverSectionViewModel]> { get }
@@ -44,14 +45,16 @@ class DriversListViewModel: DriversListViewModelType, DriversListViewModelInputs
     
     // MARK: - Dependencies
     let driversService: DriversService
+    let geocoderService: GeocoderService
     
     // MARK: - Rx Inputs
     var closeList       = PublishSubject<Void>()
     var refreshDrivers  = PublishSubject<Void>()
     
     // MARK: - Rx Outputs
-    var isLoading = ActivityIndicator()
-    var errorMessage = PublishSubject<String>()
+    var cityName        = BehaviorSubject<String>(value: "-")
+    var errorMessage    = PublishSubject<String>()
+    var isLoading       = ActivityIndicator()
     var itemsViewModel: Observable<[DriverSectionViewModel]> {
         return drivers
             .asObservable()
@@ -68,16 +71,21 @@ class DriversListViewModel: DriversListViewModelType, DriversListViewModelInputs
     private let drivers = BehaviorRelay<[Driver]>(value: [])
     
     private let userLocation: CLLocation
-    let mapBounds: MapBounds
+    private let mapBounds: MapBounds
     
     var disposeBag = DisposeBag()
     
     // MARK: - Initializers
     
-    init(mapBounds: MapBounds, userLocation: CLLocation, driversService: DriversService = DriversService()) {
+    init(mapBounds: MapBounds,
+         userLocation: CLLocation,
+         driversService: DriversService = DriversService(),
+         geocoderService: GeocoderService = GeocoderService()) {
+        
         self.mapBounds = mapBounds
         self.userLocation = userLocation
         self.driversService = driversService
+        self.geocoderService = geocoderService
         
         closeList.bind { [weak self] in
             guard let strongSelf = self else { return }
@@ -87,11 +95,29 @@ class DriversListViewModel: DriversListViewModelType, DriversListViewModelInputs
         refreshDrivers.bind { [weak self] in
             self?.loadDrivers()
         }.disposed(by: disposeBag)
+        
+        // load city name from current mapbounds
+        loadCityName()
+    }
+    
+    // MARK: - Private methods
+    
+    private func loadCityName() {
+        
+        let cityCoordinate = mapBounds.centerCoordinate
+        let cityLocation = CLLocation(latitude: cityCoordinate.latitude,
+                                      longitude: cityCoordinate.longitude)
+        
+        // use geocoder to get the city name
+        geocoderService.getCityName(location: cityLocation) { [weak self] cityName in
+            let cityName = cityName ?? "-"
+            self?.cityName.onNext(cityName)
+        }
     }
     
     private func loadDrivers() {
-        driversService.rx.getDrivers(mapBounds: self.mapBounds)
-            .trackActivity(self.isLoading)
+        driversService.rx.getDrivers(mapBounds: mapBounds)
+            .trackActivity(isLoading)
             .subscribe { [weak self] event in
                 switch event {
                 case .next(let drivers):

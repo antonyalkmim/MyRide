@@ -12,7 +12,6 @@ extension NumberFormatter {
     
     class var coordinateFormatter: NumberFormatter {
         let formater = NumberFormatter()
-        formater.decimalSeparator = "."
         formater.numberStyle = .decimal
         formater.maximumFractionDigits = 7
         return formater
@@ -20,7 +19,6 @@ extension NumberFormatter {
     
     class var killometersDistanceFormatter: NumberFormatter {
         let formater = NumberFormatter()
-        formater.decimalSeparator = ","
         formater.numberStyle = .decimal
         formater.maximumFractionDigits = 1
         return formater

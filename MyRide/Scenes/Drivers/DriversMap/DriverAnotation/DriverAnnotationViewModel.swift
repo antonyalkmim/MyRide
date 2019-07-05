@@ -11,12 +11,27 @@ import CoreLocation
 
 @objcMembers class DriverAnnotationViewModel: NSObject {
     
+    // MARK: - Private
+    
+    let driver: Driver
+    let userLocation: CLLocation
+    
+    init(driver: Driver, userLocation: CLLocation) {
+        self.driver = driver
+        self.userLocation = userLocation
+    }
+    
+    // MARK: - Bindings
+    
+    // coordinate where should show annotation in map
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: driver.coordinate.latitude,
                                       longitude: driver.coordinate.longitude)
     }
     
-    var title: String { return "\(driver.fleetType)".capitalized }
+    var title: String {
+        return "\(driver.fleetType)".capitalized
+    }
     
     var subtitle: String {
         let driverLocation = CLLocation(latitude: driver.coordinate.latitude,
@@ -31,6 +46,7 @@ import CoreLocation
         return "\(distanceFormatted) km"
     }
     
+    // annotation image icon
     var pinImage: UIImage {
         switch driver.fleetType {
         case .taxi:
@@ -38,15 +54,5 @@ import CoreLocation
         case .pooling:
             return Asset.poolingMap.image
         }
-    }
-    
-    // MARK: - Private
-    
-    let driver: Driver
-    let userLocation: CLLocation
-    
-    init(driver: Driver, userLocation: CLLocation) {
-        self.driver = driver
-        self.userLocation = userLocation
     }
 }

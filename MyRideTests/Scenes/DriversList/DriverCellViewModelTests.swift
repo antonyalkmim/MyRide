@@ -23,7 +23,7 @@ class DriverCellViewModelTests: XCTestCase {
         XCTAssertEqual(vm.identifier, "#739330")
         XCTAssertEqual(vm.driverFleetType, "Taxi")
         XCTAssertEqual(vm.coordinatesFormatted, "53.6688066, 10.0199089")
-        XCTAssertEqual(vm.distanceFormatted, "11,4 km")
+        XCTAssertEqual(vm.distanceFormatted, "11.4 km")
         XCTAssertEqual(vm.driverIcon, Asset.taxiMap.image)
     }
     

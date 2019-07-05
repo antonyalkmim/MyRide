@@ -103,17 +103,18 @@ class DriversListViewController: UIViewController {
             .drive(refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
         
-        viewModel.outputs.isLoading
-            .asDriver(onErrorJustReturn: false)
-            .drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
-            .disposed(by: disposeBag)
-        
         viewModel.outputs.errorMessage
             .asDriver(onErrorJustReturn: "")
             .filter { !$0.isEmpty } // only show not empty messages
             .drive(onNext: { [weak self] message in
                 self?.showErrorMessage(message)
             })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.cityName
+            .asDriver(onErrorJustReturn: "-")
+            .map { "Drivers in \($0)" }
+            .drive(navigationItem.rx.title)
             .disposed(by: disposeBag)
         
     }

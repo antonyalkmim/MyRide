@@ -16,7 +16,15 @@
 @class DriverAnnotationViewModel;
 
 @protocol DriversMapViewModelDelegate
+
 @optional
+
+/**
+ Called when scene needs to present drivers list
+
+ @param mapBounds Current map bounds
+ @param userLocation Current user location
+ */
 - (void)shouldPresentList:(DriversMapViewModel *)viewModel
             withMapBounds:(MapBounds *)mapBounds
           andUserLocation:(CLLocation *)userLocation;
